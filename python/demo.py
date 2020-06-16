@@ -3,7 +3,7 @@ import numpy as np
 
 def main():
     """Demo for running the eos fitting from Python."""
-    landmarks = read_pts('../bin/data/image_0010.pts')
+    landmarks = read_pts('../examples/data/image_0010.pts')
     image_width = 1280 # Make sure to adjust these when using your own images!
     image_height = 1024
 
@@ -22,6 +22,7 @@ def main():
     (mesh, pose, shape_coeffs, blendshape_coeffs) = eos.fitting.fit_shape_and_pose(morphablemodel_with_expressions,
         landmarks, landmark_mapper, image_width, image_height, edge_topology, contour_landmarks, model_contour)
 
+    print(pose.get_modelview())
     # Now you can use your favourite plotting/rendering library to display the fitted mesh, using the rendering
     # parameters in the 'pose' variable.
 
